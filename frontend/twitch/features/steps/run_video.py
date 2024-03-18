@@ -1,8 +1,8 @@
 from behave import *
-from twitch_fe.frontend.twitch.pages.HomePage import HomePage
-from twitch_fe.frontend.twitch.pages.VideosPage import VideosPage
-from twitch_fe.frontend.twitch.pages.VideoExecutionPage import VideoExecutionPage
-from twitch_fe.frontend.twitch.data.constants import SS_PATH
+from frontend.twitch.pages.HomePage import HomePage
+from frontend.twitch.pages.VideosPage import VideosPage
+from frontend.twitch.pages.VideoExecutionPage import VideoExecutionPage
+from frontend.twitch.data.constants import SS_PATH
 
 
 @given(u'a user inputs the app url')
@@ -29,7 +29,7 @@ def step_impl(context):
     context.videos_page.scroll_videos_list(50)
     context.videos_page.scroll_videos_list(300)
     # time.sleep(1)
-    context.videos_page.click_on_nth_video(5)
+    context.videos_page.click_on_nth_video(4)
 
 
 @then(u'the video execution is started')

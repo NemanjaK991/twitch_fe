@@ -1,5 +1,5 @@
-from twitch_fe.frontend.twitch.pages.BasePage import BasePage
-from twitch_fe.frontend.twitch.pages.locators import HomePageLocators
+from frontend.twitch.pages.BasePage import BasePage
+from frontend.twitch.pages.locators import HomePageLocators
 
 
 class HomePage(BasePage):

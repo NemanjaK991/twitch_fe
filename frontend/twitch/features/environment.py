@@ -1,9 +1,9 @@
 import allure
-from twitch_fe.frontend.common.driver.driver_init import CustomDriver
-from twitch_fe.frontend.common.configuration.conf_reader import ConfReader
+from frontend.common.driver.driver_init import CustomDriver
+from frontend.common.configuration.conf_reader import ConfReader
 import logging
 import datetime
-from twitch_fe.frontend.twitch.data.constants import CONF_FILE_PATH
+from frontend.twitch.data.constants import CONF_FILE_PATH
 
 
 def before_all(context):
@@ -19,7 +19,7 @@ def before_all(context):
 def before_feature(context, feature):
     context.driver_object = CustomDriver(conf_file_path=CONF_FILE_PATH, browser=context.browser,
                                          headless=context.conf_object.headless_mode,
-                                         mobile_emulator=True)
+                                         mobile_emulator=True, mobile_device='iPhone X')
     context.selenium_driver = context.driver_object.return_driver()
     if not context.conf_object.headless_mode:
         context.selenium_driver.maximize_window()

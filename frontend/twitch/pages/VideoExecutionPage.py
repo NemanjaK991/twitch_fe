@@ -1,7 +1,7 @@
 import time
 
-from twitch_fe.frontend.twitch.pages.BasePage import BasePage
-from twitch_fe.frontend.twitch.pages.locators import VideoExecutionLocators
+from frontend.twitch.pages.BasePage import BasePage
+from frontend.twitch.pages.locators import VideoExecutionLocators
 
 
 class VideoExecutionPage(BasePage):
@@ -13,8 +13,6 @@ class VideoExecutionPage(BasePage):
         self.wait_until_profile_details_are_shown()
         if len(self.driver.find_elements(*VideoExecutionLocators.close_notification_btn)) > 0:
             self.click_on_element(VideoExecutionLocators.close_notification_btn)
-        # else:
-        #     print('Nemaa'*10)
 
     def wait_until_video_is_running(self):
         counter = 0

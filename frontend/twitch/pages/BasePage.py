@@ -1,4 +1,4 @@
-from twitch_fe.frontend.common.pages.BasePage import GenericBasePage
+from frontend.common.pages.BasePage import GenericBasePage
 
 
 class BasePage(GenericBasePage):
