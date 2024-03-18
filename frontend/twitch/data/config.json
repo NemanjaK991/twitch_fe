@@ -1,0 +1,5 @@
+{
+  "url": "https://m.twitch.tv/",
+  "browser": "Chrome",  
+  "headless_mode": false
+}
