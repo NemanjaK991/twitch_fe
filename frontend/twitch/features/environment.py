@@ -14,12 +14,13 @@ def before_all(context):
     context.conf_object = ConfReader(CONF_FILE_PATH)
     context.link = context.conf_object.get_url()
     context.browser = context.conf_object.get_browser()
+    context.mobile_device = context.conf_object.mobile_device
 
 
 def before_feature(context, feature):
     context.driver_object = CustomDriver(conf_file_path=CONF_FILE_PATH, browser=context.browser,
                                          headless=context.conf_object.headless_mode,
-                                         mobile_emulator=True, mobile_device='iPhone X')
+                                         mobile_emulator=True, mobile_device=context.mobile_device)
     context.selenium_driver = context.driver_object.return_driver()
     if not context.conf_object.headless_mode:
         context.selenium_driver.maximize_window()

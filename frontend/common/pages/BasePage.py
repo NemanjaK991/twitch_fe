@@ -59,6 +59,17 @@ class GenericBasePage:
         element = self.driver.find_element(*el_locator)
         self.driver.execute_script("arguments[0].scrollBy({}, {});".format(horiz_scroll, vert_scroll), element)
 
+    def return_text_from_element(self, element):
+        self.wait_for_element(element, visible=True)
+        return self.driver.find_element(*element).text
+
+    def is_element_available(self, element, wait_time=2):
+        try:
+            WebDriverWait(self.driver, wait_time).until(
+                EC.presence_of_element_located(element))
+            return True
+        except TimeoutException:
+            return False
 
 
 

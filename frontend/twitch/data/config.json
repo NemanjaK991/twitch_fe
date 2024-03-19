@@ -1,5 +1,6 @@
 {
   "url": "https://m.twitch.tv/",
   "browser": "Chrome",  
-  "headless_mode": false
+  "headless_mode": false,
+  "mobile_device": "iPhone X"
 }

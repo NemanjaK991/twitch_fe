@@ -1,3 +1,5 @@
+import logging
+
 from behave import *
 from frontend.twitch.pages.HomePage import HomePage
 from frontend.twitch.pages.VideosPage import VideosPage
@@ -35,10 +37,9 @@ def step_impl(context):
 @then(u'the video execution is started')
 def step_impl(context):
     # context.selenium_driver.get('https://m.twitch.tv/videos/2092779200')  # testing purpose -> mute modal
-    context.video_execution_page.close_audio_muted_notification_if_it_is_shown()
-    context.video_execution_page.wait_until_video_is_running()
-    context.selenium_driver.save_screenshot(SS_PATH)
-    # time.sleep(5)
-
-# https://m.twitch.tv/videos/2092779200 -> testing purpose -> blocked content
-# locator notifikacije div[class="Layout-sc-1xcs6mc-0 kpxuvv"]
+    if context.video_execution_page.check_if_subscribers_error_msg_is_shown():
+        logging.error(context.video_execution_page.return_subsribers_error_msg_if_it_is_shown())
+    else:
+        context.video_execution_page.close_audio_muted_notification_if_it_is_shown()
+        context.video_execution_page.wait_until_video_is_running()
+        context.selenium_driver.save_screenshot(SS_PATH)

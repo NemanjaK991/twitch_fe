@@ -25,3 +25,9 @@ class VideoExecutionPage(BasePage):
             counter += 0.5
             if counter == 5:
                 break
+
+    def check_if_subscribers_error_msg_is_shown(self):
+        return self.is_element_available(VideoExecutionLocators.subscribers_msg)
+
+    def return_subsribers_error_msg_if_it_is_shown(self):
+        return self.return_text_from_element(VideoExecutionLocators.subscribers_msg)
