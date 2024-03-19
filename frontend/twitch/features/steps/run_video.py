@@ -31,12 +31,15 @@ def step_impl(context):
     context.videos_page.scroll_videos_list(50)
     context.videos_page.scroll_videos_list(300)
     # time.sleep(1)
-    context.videos_page.click_on_nth_video(4)
+    context.videos_page.click_on_nth_video(8)
 
 
 @then(u'the video execution is started')
 def step_impl(context):
     # context.selenium_driver.get('https://m.twitch.tv/videos/2092779200')  # testing purpose -> mute modal
+    # context.selenium_driver.get('https://m.twitch.tv/videos/2094598206')  # testing purpose -> content restriction
+    if context.video_execution_page.check_if_start_watching_btn_is_shown():
+        context.video_execution_page.click_on_start_watching_video()
     if context.video_execution_page.check_if_subscribers_error_msg_is_shown():
         logging.error(context.video_execution_page.return_subsribers_error_msg_if_it_is_shown())
     else:

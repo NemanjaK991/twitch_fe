@@ -31,3 +31,9 @@ class VideoExecutionPage(BasePage):
 
     def return_subsribers_error_msg_if_it_is_shown(self):
         return self.return_text_from_element(VideoExecutionLocators.subscribers_msg)
+
+    def check_if_start_watching_btn_is_shown(self):
+        return self.is_element_available(VideoExecutionLocators.start_watching_btn)
+
+    def click_on_start_watching_video(self):
+        self.click_on_element(VideoExecutionLocators.start_watching_btn)

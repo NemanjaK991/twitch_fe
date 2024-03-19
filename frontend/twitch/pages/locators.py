@@ -15,5 +15,6 @@ class VideoExecutionLocators:
     close_notification_btn = (By.CSS_SELECTOR, 'div[class="Layout-sc-1xcs6mc-0 dwSJaB"] svg')
     video_locator = (By.CSS_SELECTOR, 'div[class="sc-6150ba6-0 etDpaL"] video')
     subscribers_msg = (By.CSS_SELECTOR, 'p[class*="sc-1txzju1-0 eDsrGf"]')
+    start_watching_btn = (By.CSS_SELECTOR, 'button[class*="sc-ocjdkq-1 yvscy eQdnrM"]')
 
 
